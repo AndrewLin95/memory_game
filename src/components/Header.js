@@ -3,8 +3,8 @@ import React from 'react';
 const Header = () => {
 
     return(
-        <div>
-            
+        <div id='header'>
+            Memory Game
         </div>
     )
 }
