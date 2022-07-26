@@ -4,9 +4,9 @@ const GenerateCards = ( { cards } ) => {
 
     return (
         <div id='cardPage'>
-            {Object.entries(cards).map(() => {
+            {Object.entries(cards).map((key) => {
                 return (
-                    <div className='cardDiv'>test</div>
+                    <div key={key} className='cardDiv'>test</div>
                 )
             })
             }

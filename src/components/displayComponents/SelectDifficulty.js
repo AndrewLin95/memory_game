@@ -1,10 +1,10 @@
 import React from 'react';
 
-const SelectDifficulty = () => {
+const SelectDifficulty = ( {updateDifficulty} ) => {
     return(
         <div>
             <div>Choose your Difficulty:</div>
-            <select>
+            <select onChange={(e)=>{updateDifficulty(e.target.value)}}>
                 <option value="4">Easy</option>
                 <option value="8">Medium</option>
                 <option value="16">Hard</option>
