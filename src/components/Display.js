@@ -30,14 +30,6 @@ const Display = () => {
         console.log(cardArray);
     }
 
-    useEffect(() => {
-        const loadCards = () => {
-            setCards(shuffleCards(cards));
-        }
-        loadCards();
-        console.log('test');
-    }, [cards])
-
   /*
     1) check win
         1.1) if memory is all 1, update the wins counter
@@ -61,9 +53,9 @@ const Display = () => {
     }
 
     const handlePlayerAction = (uniqueID) => {
-        let tempCards = cards;
+        let tempCards = [...cards];
         tempCards[tempCards.findIndex((array)=> array.key === uniqueID)]['memory']++;
-        setCards(tempCards);
+        setCards(shuffleCards(tempCards));
         console.log(cards);
     }
 
