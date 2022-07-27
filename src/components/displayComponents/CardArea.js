@@ -4,9 +4,9 @@ const GenerateCards = ( { cards, handlePlayerAction } ) => {
 
     return (
         <div id='cardPage'>
-            {Object.entries(cards).map(([key]) => {
+            {cards.map((cards) => {
                 return (
-                    <div key={key} id={key} className='cardDiv' onClick={()=>{handlePlayerAction(key)}}>test</div>
+                    <div key={cards.key} id={cards.key} className='cardDiv' onClick={()=>{handlePlayerAction(cards.key)}}>test {cards.key} {cards.memory}</div>
                 )
             })
             }
