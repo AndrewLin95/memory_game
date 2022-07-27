@@ -1,12 +1,12 @@
 import React from 'react';
 
-const GenerateCards = ( { cards } ) => {
+const GenerateCards = ( { cards, handlePlayerAction } ) => {
 
     return (
         <div id='cardPage'>
-            {Object.entries(cards).map((key) => {
+            {Object.entries(cards).map(([key]) => {
                 return (
-                    <div key={key} className='cardDiv'>test</div>
+                    <div key={key} id={key} className='cardDiv' onClick={()=>{handlePlayerAction(key)}}>test</div>
                 )
             })
             }
