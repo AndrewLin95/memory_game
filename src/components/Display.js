@@ -2,22 +2,24 @@ import React, { useEffect, useState } from 'react';
 import uniqid from 'uniqid';
 import GenerateCards from './displayComponents/CardArea';
 import SelectDifficulty from './displayComponents/SelectDifficulty';
+import Score from './displayComponents/Score';
 
 const Display = () => {
     const [cards, setCards] = useState([]);
+    const [curScore, setCurScore] = useState(0);
+    const [bestScore, setBestScore] = useState(0);
+    const [difficulty, setDifficulty] = useState();
 
-    const [score, setScore] = useState();
-
-    let difficulty = 4;
     const updateDifficulty = (value) => {
-        difficulty = value;
-        createCardArray();
+        setDifficulty(value);
+        setCurScore(0);
+        createCardArray(value);
     }
 
-    const createCardArray = () => {
+    const createCardArray = (size) => {
         let i = 0;
         let cardArray = []
-        while (i < difficulty){
+        while (i < size){
             let uniqueKey = uniqid();
             cardArray[i] = {
                 key: uniqueKey,
@@ -30,15 +32,10 @@ const Display = () => {
         console.log(cardArray);
     }
 
-  /*
-    1) check win
-        1.1) if memory is all 1, update the wins counter
-    2) check memory
-        2.1) if memory is 0
-            2.1.1) update current score + shuffle cards
-        2.2) if memory is 1
-            2.2.1) display loss + button to confirm loss which restarts board
-  */
+    useEffect(() => {
+        updateDifficulty(4);
+        console.log('useEffect');
+    }, [])
 
     const shuffleCards = (tempCards) => {
         let currentIndex = tempCards.length, randomIndex;
@@ -53,14 +50,39 @@ const Display = () => {
     }
 
     const handlePlayerAction = (uniqueID) => {
-        let tempCards = [...cards];
-        tempCards[tempCards.findIndex((array)=> array.key === uniqueID)]['memory']++;
-        setCards(shuffleCards(tempCards));
-        console.log(cards);
+        let tempCards = cards;
+    
+        if (tempCards[tempCards.findIndex((array)=> array.key === uniqueID)].memory === 1){
+            if (curScore > bestScore){
+                setBestScore(curScore);
+            } 
+            resetBoard();
+        } else if (tempCards[tempCards.findIndex((array)=> array.key === uniqueID)].memory === 0){
+            tempCards[tempCards.findIndex((array)=> array.key === uniqueID)]['memory']++;
+            setCards(shuffleCards(tempCards));
+            setCurScore(curScore + 1);
+        }
+    }
+
+    const checkWin = () => {
+        if (curScore === difficulty){
+            setBestScore(curScore);
+            resetBoard();
+        }
+    }
+
+    useEffect(() => {
+        checkWin();
+    }, [curScore, difficulty])
+
+    const resetBoard = () => {
+        createCardArray(difficulty);
+        setCurScore(0);
     }
 
     return(
         <div>
+            <Score curScore={curScore} bestScore={bestScore}/>
             <GenerateCards cards={cards} handlePlayerAction={handlePlayerAction}/>
             <SelectDifficulty updateDifficulty={updateDifficulty}/>
             <button>Test</button>
