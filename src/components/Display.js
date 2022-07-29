@@ -4,6 +4,7 @@ import GenerateCards from './displayComponents/GenerateCards';
 import SelectDifficulty from './displayComponents/SelectDifficulty';
 import Score from './displayComponents/Score';
 import WinLoss from './displayComponents/WinLoss';
+import Instructions from './displayComponents/Instructions';
 
 const Display = () => {
     const [cards, setCards] = useState([]);
@@ -12,6 +13,7 @@ const Display = () => {
     const [difficulty, setDifficulty] = useState();
     const [win, setWin] = useState(0);
     const [loss, setLoss] = useState(0);
+    const [instruction, setInstruction] = useState(1);
 
     const updateDifficulty = (value) => {
         setDifficulty(value);
@@ -89,9 +91,14 @@ const Display = () => {
         resetBoard();
     }
 
+    const acknowledgeInstructions = () => {
+        setInstruction(0);
+    }
+
     return(
         <div id='mainPage'>
             <Score curScore={curScore} bestScore={bestScore}/>
+            <Instructions instruction={instruction} acknowledgeInstructions={acknowledgeInstructions}/>
             <WinLoss win={win} loss={loss} acknowledgeResult={acknowledgeResult}/>
             <GenerateCards cards={cards} handlePlayerAction={handlePlayerAction}/>
             <SelectDifficulty updateDifficulty={updateDifficulty}/>
