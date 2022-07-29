@@ -23,7 +23,7 @@ const Display = () => {
             let uniqueKey = uniqid();
             cardArray[i] = {
                 key: uniqueKey,
-                image: `test ${i}`,
+                image: i,
                 memory: 0
             }
             i++;

@@ -6,7 +6,10 @@ const GenerateCards = ( { cards, handlePlayerAction } ) => {
         <div id='cardPage'>
             {cards.map((cards) => {
                 return (
-                    <div key={cards.key} id={cards.key} className='cardDiv' onClick={()=>{handlePlayerAction(cards.key)}}>test {cards.key} {cards.memory}</div>
+                    <div key={cards.key} id={cards.key} className='cardDiv' onClick={()=>{handlePlayerAction(cards.key)}}>
+                        <img src={require(`../../images/${cards.image}.png`)} alt="card visual" width={"100%"} height={"auto"}/>
+                        <div></div>
+                    </div>
                 )
             })
             }
