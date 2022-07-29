@@ -98,6 +98,19 @@ code {
 	margin-bottom: 5em;
 }
 
+#footer{
+	width: 100%;
+	flex: 1;
+	display: flex;
+	position: relative;
+	bottom: 0.5em;
+	justify-content: center;
+    font-size: 4em;
+}
+
+a, a:visited, a:active {
+    color: inherit;
+}
 @media (max-width: 750px) {
 	#cardPage{
 		max-width: 400px;
