@@ -89,13 +89,43 @@ code {
 #cardPage{
 	display: flex;
 	max-width: 850px;
-	margin-bottom: 1em;;
+	margin-bottom: 1em;
+}
+
+.cardDiv{
+	border: #c19ee0;
+	box-shadow: 3px 3px 10px #c19ee0;
 }
 
 #difficulty{
 	display: flex;
 	gap: 0.5em;
 	margin-bottom: 5em;
+}
+
+.winLoss{
+	z-index: 5;
+	display: flex;
+	position: fixed;
+	width: 100vw;
+	height: 90vh;
+}
+
+.winLossText{
+	background: rgba(193, 158, 224, 0.8);
+	position: fixed;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	border-radius: 10%;
+	top: 25%;
+	left: 34%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+	box-shadow: 10px 10px 70px #c19ee0;
 }
 
 #footer{
@@ -111,6 +141,7 @@ code {
 a, a:visited, a:active {
     color: inherit;
 }
+
 @media (max-width: 750px) {
 	#cardPage{
 		max-width: 400px;
