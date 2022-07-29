@@ -18,6 +18,9 @@
 }
 
 .cardDiv{
-    height: 15em;
+    height: 13em;
     width: 10em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
