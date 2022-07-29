@@ -28,7 +28,7 @@ const Display = () => {
             }
             i++;
         }
-        setCards(cardArray);
+        setCards(shuffleCards(cardArray));
         console.log(cardArray);
     }
 
@@ -81,11 +81,10 @@ const Display = () => {
     }
 
     return(
-        <div>
+        <div id='mainPage'>
             <Score curScore={curScore} bestScore={bestScore}/>
             <GenerateCards cards={cards} handlePlayerAction={handlePlayerAction}/>
             <SelectDifficulty updateDifficulty={updateDifficulty}/>
-            <button>Test</button>
         </div>
     )
 };

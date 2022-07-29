@@ -4,9 +4,9 @@ const Score = ( props ) => {
     const { curScore, bestScore } = props;
 
     return(
-        <div>
-            <div>Current Score: {curScore}</div>
-            <div>Best Score: {bestScore}</div>
+        <div id='score'>
+            <div id='curScore'>Current Score: {curScore}</div>
+            <div id='bestScore'>Best Score: {bestScore}</div>
         </div>
     )
 }

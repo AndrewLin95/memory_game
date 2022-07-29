@@ -2,7 +2,7 @@ import React from 'react';
 
 const SelectDifficulty = ( {updateDifficulty} ) => {
     return(
-        <div>
+        <div id='difficulty'>
             <div>Choose your Difficulty:</div>
             <select onChange={(e)=>{updateDifficulty(parseInt(e.target.value))}}>
                 <option value={4}>Easy</option>
