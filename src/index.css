@@ -109,6 +109,7 @@ code {
 	position: fixed;
 	width: 100vw;
 	height: 90vh;
+	justify-content: center;
 }
 
 .winLossText{
@@ -120,7 +121,6 @@ code {
 	padding-right: 0.5em;
 	border-radius: 10%;
 	top: 25%;
-	left: 34%;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
