@@ -9,7 +9,7 @@ class Footer extends Component{
         return(
             <div id='footer'>
                 <a href='https://github.com/AndrewLin95/memory_game' target="_blank" rel='noreferrer'>{githubIcon}</a>
-                <div>Test for GH Actions Deploy2</div>
+                <div>Test for GH Actions Deploy with npm</div>
             </div>
         )
     }
