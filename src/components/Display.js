@@ -41,7 +41,7 @@ const Display = () => {
     useEffect(() => {
         updateDifficulty(4);
         console.log('useEffect');
-    }, [updateDifficulty])
+    }, [])
 
     const shuffleCards = (tempCards) => {
         let currentIndex = tempCards.length, randomIndex;
@@ -79,7 +79,7 @@ const Display = () => {
 
     useEffect(() => {
         checkWin();
-    }, [checkWin, curScore, difficulty])
+    }, [curScore, difficulty])
 
     const resetBoard = () => {
         createCardArray(difficulty);
