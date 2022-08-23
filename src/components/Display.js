@@ -69,6 +69,7 @@ const Display = () => {
         }
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const checkWin = () => {
         if (curScore === difficulty){
             setBestScore(curScore);
@@ -78,7 +79,7 @@ const Display = () => {
 
     useEffect(() => {
         checkWin();
-    }, [curScore, difficulty])
+    }, [checkWin, curScore, difficulty])
 
     const resetBoard = () => {
         createCardArray(difficulty);
