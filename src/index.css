@@ -162,5 +162,6 @@ a, a:visited, a:active {
 @media (max-width: 750px) {
 	#cardPage{
 		max-width: 400px;
+		min-width: 400px;
 	}
 }
