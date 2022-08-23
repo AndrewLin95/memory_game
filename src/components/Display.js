@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import uniqid from 'uniqid';
 import GenerateCards from './displayComponents/GenerateCards';
@@ -40,7 +41,7 @@ const Display = () => {
     useEffect(() => {
         updateDifficulty(4);
         console.log('useEffect');
-    }, [])
+    }, [updateDifficulty])
 
     const shuffleCards = (tempCards) => {
         let currentIndex = tempCards.length, randomIndex;
@@ -69,7 +70,6 @@ const Display = () => {
         }
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const checkWin = () => {
         if (curScore === difficulty){
             setBestScore(curScore);
